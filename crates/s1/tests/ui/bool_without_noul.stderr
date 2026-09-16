@@ -1,0 +1,5 @@
+error: bool fields need #[s1(noul = "...")]
+  --> tests/ui/bool_without_noul.rs:15:5
+   |
+15 |     flag: bool,
+   |     ^^^^

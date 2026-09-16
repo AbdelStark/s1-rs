@@ -1,0 +1,5 @@
+error: Choice requires at least 2 variants
+ --> tests/ui/too_few_variants.rs:5:6
+  |
+5 | enum One {
+  |      ^^^

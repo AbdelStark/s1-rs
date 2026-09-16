@@ -1,0 +1,24 @@
+{
+  "department": {
+    "type": "choice",
+    "instructions": "Which team should handle this ticket?",
+    "criteria": {
+      "billing": "Payment, invoice, refund, or subscription issues",
+      "technical": "Bugs, errors, or integration problems",
+      "sales": "Pricing or plan questions"
+    }
+  },
+  "frustration": {
+    "type": "score",
+    "instructions": "How frustrated does the customer appear?",
+    "criteria": [
+      "Calm, just stating facts",
+      "Frustrated but civil",
+      "Angry, strong language"
+    ]
+  },
+  "urgent": {
+    "type": "noul",
+    "instructions": "The message conveys urgency or time pressure"
+  }
+}

@@ -1,0 +1,40 @@
+[package]
+name = "s1"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+authors.workspace = true
+publish.workspace = true
+description = "Typed System One decisions for Rust: Choice, Score, and Noul as enums and structs."
+readme = "../../README.md"
+keywords = ["typesafe", "decision", "derive", "llm"]
+categories = ["api-bindings", "rust-patterns"]
+
+[dependencies]
+indexmap.workspace = true
+s1-derive.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+indexmap.workspace = true
+pretty_assertions.workspace = true
+s1-test.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+trybuild.workspace = true
+
+[[example]]
+name = "triage"
+path = "../../examples/triage.rs"
+
+[[example]]
+name = "moderation"
+path = "../../examples/moderation.rs"
+
+[package.metadata.docs.rs]
+rustdoc-args = ["--cfg", "docsrs"]

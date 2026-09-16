@@ -15,11 +15,11 @@ Typed layer only. No HTTP.
 - Golden tests + trybuild UI tests
 - Examples: `triage`, `moderation` (FakeClient, no network)
 - Dual license MIT OR Apache-2.0
+- **`backend-typesafe-rs`** — `impl DecisionBackend for typesafe_rs::Client` (path `../typesafe-rs` in the companion checkout). Default `cargo test --workspace` stays FakeClient-only.
 
 ## Next
 
-1. **`backend-typesafe-rs` feature** — wire `impl DecisionBackend for typesafe_rs::Client` (or their `Backend` trait) after typesafe-rs v0.1 lands. Path dependency on `../typesafe-rs` when that crate compiles. Do not block s1-rs tests on it.
-2. **`ask_many` / pipeline** — bounded concurrency over many states (PRD G6). Prefer delegating rate limits to typesafe-rs tower layers.
+1. **`ask_many` / pipeline** — bounded concurrency over many states (PRD G6). Prefer delegating rate limits to typesafe-rs tower layers.
 3. **`s1-cli`** — `s1 ask` / `s1 map` / `s1 gate` / `s1 replay` (PRD G8, SPEC §10).
 4. **`backend-typesafe-ai`** — optional adapter for Joey's `typesafe-ai` crate.
 5. **Cassettes** — `Cassette::record` / `replay` against a real backend, sanitized.

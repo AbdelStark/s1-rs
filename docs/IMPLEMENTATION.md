@@ -14,6 +14,9 @@ Answers<Q> = <Q as QuestionSet>::Answers
 
 DecisionBackend::evaluate(WireRequest) -> Future<Result<WireResponse, Error>>
 S1<C: DecisionBackend>::ask<Q: QuestionSet>(state) -> Result<Q::Answers, S1Error<C::Error>>
+
+Feature `backend-typesafe-rs`: `impl DecisionBackend for typesafe_rs::Client`
+  WireRequest JSON → SystemOneRequest → Client::system_one_with → WireResponse
 ```
 
 `WireRequest` / `WireResponse` / `Question` / `WireAnswer` are owned by `s1`. They mirror the documented TypeSafe JSON (`state`, `model`, `questions` / `model`, `answers`, `usage`, `request_id`). Insertion order is preserved with `IndexMap`.

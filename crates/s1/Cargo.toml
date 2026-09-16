@@ -13,12 +13,17 @@ readme = "../../README.md"
 keywords = ["typesafe", "decision", "derive", "llm"]
 categories = ["api-bindings", "rust-patterns"]
 
+[features]
+default = []
+backend-typesafe-rs = ["dep:typesafe-rs"]
+
 [dependencies]
 indexmap.workspace = true
 s1-derive.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 thiserror.workspace = true
+typesafe-rs = { workspace = true, optional = true }
 
 [dev-dependencies]
 indexmap.workspace = true
@@ -36,5 +41,10 @@ path = "../../examples/triage.rs"
 name = "moderation"
 path = "../../examples/moderation.rs"
 
+[[test]]
+name = "typesafe_rs_backend"
+required-features = ["backend-typesafe-rs"]
+
 [package.metadata.docs.rs]
+all-features = true
 rustdoc-args = ["--cfg", "docsrs"]

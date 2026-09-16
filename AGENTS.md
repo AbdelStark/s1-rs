@@ -20,6 +20,7 @@ There is no `s1-cli` in v0.1 (planned for v0.2). There is no HTTP client in this
 
 ```bash
 cargo test --workspace          # no network; uses FakeClient
+cargo test -p s1 --features backend-typesafe-rs   # HTTP via sibling typesafe-rs + loopback stub
 cargo run --example triage      # FakeClient, no network
 cargo run --example moderation
 cargo test -p s1 --test ui      # trybuild compile-fail
@@ -56,6 +57,8 @@ Handlers match on the question-key set of `Q::questions()`. Tests must go throug
 
 **v0.1 (this tree):** derives, answers, gating, FakeClient, golden + trybuild tests, two examples.
 
-**Not in v0.1:** `s1-cli`, `ask_many` / pipeline, metrics / OTEL, live cassettes, WASM, `backend-typesafe-rs` (typesafe-rs is not ready), `backend-typesafe-ai`.
+**Not in v0.1:** `s1-cli`, `ask_many` / pipeline, metrics / OTEL, live cassettes, WASM, `backend-typesafe-ai`.
+
+**`backend-typesafe-rs`:** optional. Path-depends on sibling `../typesafe-rs` (companion submodule layout). `impl DecisionBackend for typesafe_rs::Client`. Integration test `typesafe_rs_backend` talks HTTP on loopback; it does not call the live API.
 
 See `ROADMAP.md`.

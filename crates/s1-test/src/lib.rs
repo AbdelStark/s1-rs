@@ -1,4 +1,40 @@
-//! Test helpers for `s1`. No network: script answers per question set.
+//! Test helpers for [`s1`](https://github.com/AbdelStark/s1-rs): a scriptable
+//! [`FakeClient`] with no network.
+//!
+//! Register one handler per question set. `S1::ask` still runs the real
+//! decode path.
+//!
+//! ```
+//! use s1::{Choice, Policy, Questions, S1, Verdict};
+//! use s1_test::{FakeClient, Script};
+//!
+//! #[derive(Choice)]
+//! #[s1(instructions = "Which team?")]
+//! enum Department {
+//!     #[s1("Payments")]
+//!     Billing,
+//!     #[s1("Bugs")]
+//!     Technical,
+//! }
+//!
+//! #[derive(Questions)]
+//! #[allow(dead_code)]
+//! struct Route {
+//!     department: Department,
+//! }
+//!
+//! let fake = FakeClient::new().on::<Route>(|_state| {
+//!     Script::new().choice(Department::Billing, 0.91)
+//! });
+//! let s1 = S1::new(fake);
+//! # tokio::runtime::Builder::new_current_thread().build().unwrap().block_on(async {
+//! let t = s1.ask::<Route>(&"invoice charge").await.unwrap();
+//! assert_eq!(
+//!     t.department.gate(Policy::act(0.85).review(0.6)),
+//!     Verdict::Act(Department::Billing)
+//! );
+//! # });
+//! ```
 
 #![forbid(unsafe_code)]
 #![deny(missing_docs)]

@@ -27,4 +27,4 @@ syn = { version = "2.0", features = ["full"] }
 thiserror = "2.0"
 tokio = { version = "1.47", features = ["io-util", "macros", "net", "rt", "rt-multi-thread"] }
 trybuild = "1.0"
-typesafe-rs = { path = "../typesafe-rs/crates/typesafe-rs" }
+typesafe-rs = "0.1"

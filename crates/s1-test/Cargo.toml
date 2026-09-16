@@ -15,3 +15,6 @@ indexmap.workspace = true
 s1.workspace = true
 serde_json.workspace = true
 thiserror.workspace = true
+
+[dev-dependencies]
+tokio.workspace = true

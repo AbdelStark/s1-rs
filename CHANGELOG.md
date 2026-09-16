@@ -11,3 +11,4 @@ Initial MVP.
 - `s1-test::FakeClient`
 - Golden JSON tests and trybuild UI tests
 - Examples: `triage`, `moderation`
+- Optional `backend-typesafe-rs`: `impl DecisionBackend for typesafe_rs::Client` (crates.io `typesafe-rs` 0.1)

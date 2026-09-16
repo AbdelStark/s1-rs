@@ -15,4 +15,6 @@ jobs:
           components: rustfmt, clippy
       - run: cargo fmt --all -- --check
       - run: cargo clippy --workspace --all-targets -- -D warnings
+      - run: cargo clippy -p s1 --all-targets --features backend-typesafe-rs -- -D warnings
       - run: cargo test --workspace
+      - run: cargo test -p s1 --features backend-typesafe-rs --test typesafe_rs_backend

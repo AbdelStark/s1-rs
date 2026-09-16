@@ -15,7 +15,7 @@ Typed layer only. No HTTP.
 - Golden tests + trybuild UI tests
 - Examples: `triage`, `moderation` (FakeClient, no network)
 - Dual license MIT OR Apache-2.0
-- **`backend-typesafe-rs`** — `impl DecisionBackend for typesafe_rs::Client` (path `../typesafe-rs` in the companion checkout). Default `cargo test --workspace` stays FakeClient-only.
+- **`backend-typesafe-rs`** — `impl DecisionBackend for typesafe_rs::Client` (crates.io `typesafe-rs` 0.1). Default `cargo test --workspace` stays FakeClient-only.
 
 ## Next
 

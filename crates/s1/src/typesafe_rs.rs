@@ -1,4 +1,4 @@
-//! [`DecisionBackend`] for [`typesafe_rs::Client`].
+//! [`DecisionBackend`] for the published crates.io [`typesafe_rs::Client`].
 
 use std::future::Future;
 
@@ -23,11 +23,12 @@ impl DecisionBackend for typesafe_rs::Client {
     }
 }
 
-fn to_system_one_request(req: WireRequest) -> Result<typesafe_rs::SystemOneRequest, typesafe_rs::Error> {
+fn to_system_one_request(
+    req: WireRequest,
+) -> Result<typesafe_rs::SystemOneRequest, typesafe_rs::Error> {
     let value = serde_json::to_value(&req)
         .map_err(|e| typesafe_rs::Error::InvalidRequest(e.to_string()))?;
-    serde_json::from_value(value)
-        .map_err(|e| typesafe_rs::Error::InvalidRequest(e.to_string()))
+    serde_json::from_value(value).map_err(|e| typesafe_rs::Error::InvalidRequest(e.to_string()))
 }
 
 fn from_system_one_response(resp: typesafe_rs::SystemOneResponse) -> WireResponse {

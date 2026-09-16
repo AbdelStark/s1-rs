@@ -71,4 +71,4 @@ Invariants: `act >= review`; thresholds in `[0, 1]`. Per-variant overrides via `
 
 ## Backends
 
-v0.1 ships `s1-test::FakeClient` only. `backend-typesafe-rs` waits on typesafe-rs v0.1 (see `ROADMAP.md`).
+v0.1 ships `s1-test::FakeClient` (default, no network) and optional `backend-typesafe-rs`: `impl DecisionBackend for typesafe_rs::Client` via crates.io `typesafe-rs` 0.1. The integration test talks HTTP on loopback and does not call the live API.

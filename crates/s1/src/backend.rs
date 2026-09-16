@@ -10,8 +10,11 @@ use crate::wire::{WireRequest, WireResponse};
 /// Default model sent when [`S1::with_model`] is not used.
 pub const DEFAULT_MODEL: &str = "jev-latest";
 
-/// Minimal transport the typed layer needs. Implemented by `s1-test::FakeClient`
-/// and, later, by `typesafe-rs` backends.
+/// Minimal transport the typed layer needs.
+///
+/// Implemented by `s1-test::FakeClient`. Enable the `backend-typesafe-rs`
+/// feature to use the published [`typesafe_rs::Client`](https://docs.rs/typesafe-rs/latest/typesafe_rs/struct.Client.html)
+/// as a backend.
 pub trait DecisionBackend: Send + Sync {
     /// Backend failure (network, HTTP, fake-script miss, …).
     type Error: std::error::Error + Send + Sync + 'static;

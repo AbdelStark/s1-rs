@@ -8,9 +8,9 @@ repository.workspace = true
 homepage.workspace = true
 authors.workspace = true
 publish.workspace = true
-description = "Typed System One decisions for Rust: Choice, Score, and Noul as enums and structs."
+description = "Typed System One decisions for Rust: derive Choice, Score, and Questions, then ask and gate on Verdict::{Act, Review, Escalate}."
 readme = "../../README.md"
-keywords = ["typesafe", "decision", "derive", "llm"]
+keywords = ["typesafe", "system-one", "decision", "derive", "classification"]
 categories = ["api-bindings", "rust-patterns"]
 
 [features]
